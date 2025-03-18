@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Комментарии</h1>
+<form method="POST">
+    <label for="author">Ваше имя:</label>
+    <input type="text" id="author" name="author" required>
+    <br>
+    <label for="content">Ваш комментарий:</label>
+    <textarea id="content" name="content" required></textarea>
+    <br>
+    <button type="submit">Отправить</button>
+</form>
+<h2>Все комментарии</h2>
+<ul>
+    {% for comment in comments %}
+    <li>
+        <strong>{{ comment.author }}</strong>: {{ comment.content }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
